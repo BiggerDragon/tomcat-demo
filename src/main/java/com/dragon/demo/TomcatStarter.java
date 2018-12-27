@@ -10,14 +10,9 @@ import java.util.Arrays;
 import org.apache.catalina.Host;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.Service;
-import org.apache.catalina.WebResourceRoot;
-import org.apache.catalina.WebResourceSet;
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.webresources.DirResourceSet;
-import org.apache.catalina.webresources.EmptyResourceSet;
-import org.apache.catalina.webresources.StandardRoot;
 
 /**
  * 
@@ -47,7 +42,6 @@ public class TomcatStarter {
 	public static void main(String[] args) throws LifecycleException, IOException {
 		File root = getRootFolder();
 		System.out.println(root.getAbsolutePath());
-//		System.setProperty("org.apache.catalina.startup.EXIT_ON_INIT_FAILURE", "true");
 		Path temDir = Files.createTempDirectory("tomcat-base-dir");
 		System.out.println(temDir);
 		Tomcat tomcat = new Tomcat();
@@ -65,33 +59,12 @@ public class TomcatStarter {
         }
         
         StandardContext ctx = (StandardContext)tomcat.addWebapp("/zhu", webContentFolder.getAbsolutePath());
-      /**
-       * 
-       * The following commented code is not necessary!
-       * 
-       */
-//        ctx.setParentClassLoader(TomcatStarter.class.getClassLoader());
-//        System.out.println("configuring app with basedir: " + webContentFolder.getAbsolutePath());
-        
-        // Declare an alternative location for your "WEB-INF/classes" dir
-        // Servlet 3.0 annotation will work
-//        File additionWebInfClassesFolder = new File(root.getAbsolutePath(), "target/classes");
-//        WebResourceRoot resources = new StandardRoot(ctx);
-//        
-//        WebResourceSet resourceSet;
-//        if (additionWebInfClassesFolder.exists()) {
-//            resourceSet = new DirResourceSet(resources, "/WEB-INF/classes", additionWebInfClassesFolder.getAbsolutePath(), "/");
-//            System.out.println("loading WEB-INF resources from as '" + additionWebInfClassesFolder.getAbsolutePath() + "'");
-//        } else {
-//            resourceSet = new EmptyResourceSet(resources);
-//        }
-//        resources.addPreResources(resourceSet);
-//        ctx.setResources(resources);
-
+        System.out.println("context base name="+ctx.getBaseName());
+     
         tomcat.start();
         
         Host host = tomcat.getHost();
-        
+        System.out.println(host.getAppBase());
         Service service = tomcat.getService();
         
         /**

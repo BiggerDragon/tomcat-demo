@@ -16,7 +16,7 @@ public class AppContextStarter {
 		acac.refresh();
 		DemoController demoController = acac.getBean(DemoController.class);
 		System.out.println(demoController);
-		
+		acac.close();
 		
 		
 

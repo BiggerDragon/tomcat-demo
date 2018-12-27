@@ -1,16 +1,11 @@
 package com.dragon.demo.tomcat.test;
 
-import java.util.Properties;
-
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.Service;
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.startup.Tomcat;
 import org.junit.Test;
-import org.springframework.web.context.ContextLoaderListener;
-import org.springframework.web.servlet.DispatcherServlet;
-import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;
 
 public class TestTomcatStart {
 	/**
