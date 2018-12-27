@@ -32,28 +32,6 @@ public class TestTomcatStart {
 		tomcat.start();
 		tomcat.getServer().await();
 	}
-	/**
-	 * 
-	 * This is for AnnotationWebApplicationInitializer test
-	 * 
-	 * @throws LifecycleException
-	 */
-	@Test
-	public void test02() throws LifecycleException {
-		Tomcat tomcat = new Tomcat();
-		tomcat.setBaseDir("D:\\workspace\\tomcat-demo\\tomcat.8080");
-		tomcat.setPort(8080);
-		String webappPath = "D:\\workspace\\tomcat-demo\\src\\main\\webapp";
-		Context context = tomcat.addWebapp("/zhu", webappPath);
-		System.out.println("context=" + context);
-		Service service = tomcat.getService();
-		Connector connector = new Connector();
-		connector.setPort(8080);
-		System.out.println("connector=" + connector);
-		service.addConnector(connector);
-		tomcat.start();
-		tomcat.getServer().await();
-		
-	}
+	 
 
 }
