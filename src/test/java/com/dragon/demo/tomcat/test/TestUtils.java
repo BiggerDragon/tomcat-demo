@@ -4,8 +4,9 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.security.CodeSource;
 import java.security.ProtectionDomain;
-
 import org.junit.Test;
+import java.io.File;
+import org.junit.Assert;
 
 public class TestUtils {
 
@@ -24,7 +25,11 @@ public class TestUtils {
 		System.out.println(location.toURI());
 		System.out.println(location.toURI().getPath());
 		
-		
-	}
+		File file = new File("./demo.txt");
+		Assert.assertNotNull(file);
 
+
+
+	}
+	
 }

@@ -30,7 +30,15 @@ public class TestTomcatStart {
 		System.out.println("connector=" + connector);
 		service.addConnector(connector);
 		tomcat.start();
-		tomcat.getServer().await();
+		// tomcat.getServer().await();
+		try{
+			Thread.sleep(10000);
+		}catch(InterruptedException e){
+			e.printStackTrace();
+		}
+
+		
+		
 	}
 	 
 
