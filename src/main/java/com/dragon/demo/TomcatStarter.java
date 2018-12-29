@@ -16,7 +16,7 @@ import org.apache.catalina.startup.Tomcat;
 
 /**
  * 
- * @author Administrator
+ * @author zhuyoulong
  *
  */
 public class TomcatStarter {
